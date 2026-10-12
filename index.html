@@ -36,7 +36,7 @@
         header p {
             margin-top: 8px;
             font-size: 0.95rem;
-            color: #fff3e6;
+            color: #fff3e0;
         }
 
         /* Conteúdo principal */
@@ -78,29 +78,52 @@
         }
 
         .card p {
-            color: #cccccc;
+            color: #ccc;
             font-size: 0.9rem;
             line-height: 1.4;
         }
 
-        /* Botão de destaque */
-        .botao-container {
+        /* Área Interativa de Ki */
+        .ki-box {
+            background-color: #1a1a24;
+            border: 2px dashed #ff8800;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
+        }
+
+        .ki-contador {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffaa00;
+            margin: 15px 0;
+            text-shadow: 0 0 8px rgba(255, 170, 0, 0.5);
         }
 
         .btn-ki {
-            background: linear-gradient(90deg, #ff5500, #ffaa00);
-            color: #ffffff;
+            background: linear-gradient(135deg, #ff5500, #ff0055);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
             font-weight: bold;
-            padding: 14px 28px;
-            text-decoration: none;
             border-radius: 25px;
-            display: inline-block;
-            box-shadow: 0 0 12px rgba(255, 170, 0, 0.5);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 85, 0, 0.5);
+            transition: transform 0.1s;
+        }
+
+        .btn-ki:active {
+            transform: scale(0.95);
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #666;
         }
     </style>
 </head>
@@ -108,33 +131,46 @@
 
     <header>
         <h1>Dragon Ball Z</h1>
-        <p>Explore o poder dos Guerreiros Z</p>
+        <p>Universo Saiyajin & Portfólio Interativo</p>
     </header>
 
     <div class="container">
         <div class="secao-wrapper">
-            <h2 class="titulo-secao">Guerreiros em Destaque</h2>
+            <h2 class="titulo-secao">Personagens em Destaque</h2>
         </div>
 
         <div class="card">
             <h3>Goku (Kakarotto)</h3>
-            <p>O Saiyajin criado na Terra. Sempre em busca de superar os seus limites e proteger o universo contra ameaças poderosas.</p>
+            <p>O Saiyajin criado na Terra. Um guerreiro de coração puro focado em superar os seus próprios limites.</p>
         </div>
 
         <div class="card">
             <h3>Vegeta</h3>
-            <p>O Orgulhoso Príncipe dos Saiyajins. Um guerreiro formidável focado em tornar-se o mais forte de todos.</p>
+            <p>O Príncipe dos Saiyajins. Orgulhoso, poderoso e determinado a ser o número um do universo.</p>
         </div>
 
-        <div class="card">
-            <h3>Gohan</h3>
-            <p>Filho de Goku, detentor de um poder oculto devastador que desperta em momentos cruciais de perigo.</p>
+        <div class="secao-wrapper">
+            <h2 class="titulo-secao">Treinamento Interativo</h2>
         </div>
 
-        <div class="botao-container">
-            <a href="#" class="btn-ki">Elevar o Teu Ki!</a>
+        <div class="ki-box">
+            <p>Aumente o seu poder de luta para a batalha!</p>
+            <div class="ki-contador" id="poderKi">0 KI</div>
+            <button class="btn-ki" onclick="elevarKi()">Elevar o Ki! 🔥</button>
         </div>
+
+        <footer>
+            <p>Projeto de Estudo • Desenvolvido via Mobile</p>
+        </footer>
     </div>
+
+    <script>
+        let ki = 0;
+        function elevarKi() {
+            ki += 8000;
+            document.getElementById('poderKi').innerText = ki.toLocaleString('pt-BR') + ' KI';
+        }
+    </script>
 
 </body>
 </html>
